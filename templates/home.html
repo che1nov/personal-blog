@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+<h1>Articles</h1>
+{{ if . }}
+<ul>
+    {{ range . }}
+    <li>
+        <a href="/article/{{ .ID }}">{{ .Title }}</a> - {{ .PublishedDate }}
+    </li>
+    {{ end }}
+</ul>
+{{ else }}
+<p>No articles found.</p>
+{{ end }}
+
+<!-- Кнопка для администраторов -->
+<a href="/admin/dashboard"><button>Add New Article</button></a>
+</body>
+</html>

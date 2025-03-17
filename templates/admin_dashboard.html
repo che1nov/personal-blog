@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+<h1>Admin Dashboard</h1>
+
+<a href="/admin/add-article"><button>Add New Article</button></a>
+
+<ul>
+    {{ range . }}
+    <li>
+        <a href="/article/{{ .ID }}">{{ .Title }}</a> - {{ .PublishedDate }}
+        <a href="/admin/edit-article/{{ .ID }}"><button>Edit</button></a>
+        <a href="/admin/delete-article/{{ .ID }}"><button>Delete</button></a>
+    </li>
+    {{ end }}
+</ul>
+</body>
+</html>
